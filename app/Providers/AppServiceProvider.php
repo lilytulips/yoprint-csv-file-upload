@@ -19,6 +19,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Increase memory limit for large file processing
+        // Note: This only affects memory_limit, not upload_max_filesize or post_max_size
+        // Those must be changed in php.ini
+        ini_set('memory_limit', '512M');
     }
 }

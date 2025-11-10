@@ -5,6 +5,11 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
+// Increase memory limit for large file uploads (can be changed at runtime)
+// Note: upload_max_filesize and post_max_size CANNOT be changed at runtime
+// They must be changed in php.ini file
+ini_set('memory_limit', '512M');
+
 // Determine if the application is in maintenance mode...
 if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
     require $maintenance;
